@@ -1,20 +1,21 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-// import Header from "./Header";
+import Header from "./Header";
+import TinderCards from "./TinderCards";
 
 function App() {
 	return (
 		<div className="app">
+			<Header />
 			<Router>
 				<Switch>
 					<Route path="/chat">
-						<h1> Chat </h1>
+						<h1> I am the chat page </h1>
 					</Route>
 					<Route path="/">
-						<h1> One </h1>
+						<TinderCards />
 					</Route>
-					{/* <Header /> */}
 				</Switch>
 			</Router>
 		</div>
