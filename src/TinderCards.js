@@ -22,23 +22,25 @@ function TinderCards() {
 		<div>
 			<h1>Tinder cards</h1>
 
-			{people.map((person) => (
-				<TinderCard
-					//
-					className="swipe"
-					key={person.name}
-					//
-					preventSwipe={["up", "down"]}
-					//
-				>
-					<div
-						style={{ backgroundImage: `url(${person.url})` }}
-						className="card"
+			<div classNametinderCards_CardContainer>
+				{people.map((person) => (
+					<TinderCard
+						//
+						className="swipe"
+						key={person.name}
+						//
+						preventSwipe={["up", "down"]}
+						// disables the ability to move cards up and down
 					>
-						<h3>{person.name}</h3>
-					</div>
-				</TinderCard>
-			))}
+						<div
+							style={{ backgroundImage: `url(${person.url})` }}
+							className="card"
+						>
+							<h3>{person.name}</h3>
+						</div>
+					</TinderCard>
+				))}
+			</div>
 		</div>
 	);
 }
