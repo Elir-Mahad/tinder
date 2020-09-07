@@ -1,18 +1,22 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-import Header from "./Header";
+// import Header from "./Header";
 
 function App() {
 	return (
 		<div className="app">
-			<h1>Kitty season</h1>
-
-			<Header />
-			{/* tinder cards */}
-			{/* buttons below tinder cards */}
-
-			{/* chat screen */}
-			{/* individual chat screen */}
+			<Router>
+				<Switch>
+					<Route path="/chat">
+						<h1> Chat </h1>
+					</Route>
+					<Route path="/">
+						<h1> One </h1>
+					</Route>
+					{/* <Header /> */}
+				</Switch>
+			</Router>
 		</div>
 	);
 }
