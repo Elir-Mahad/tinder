@@ -1,22 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./TinderCards.css";
+import { database } from "./firebase.js";
 
 import TinderCard from "react-tinder-card";
 
 function TinderCards() {
+	//
 	//! useState below
-	const [people, setPeople] = useState([
-		{
-			name: "Tupac",
-			url:
-				"https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fogdenpayne%2Ffiles%2F2016%2F09%2Ftupac-poetic-justice-1200x826.jpg"
-		},
-		{
-			name: "Rihanna",
-			url:
-				"https://cdn.24.co.za/files/Cms/General/d/557/08109823f9794801a59ae6fb960bb925.jpg"
-		}
-	]);
+	const [people, setPeople] = useState([]);
+
+	// ! UseEffect below
+
+	useEffect(() => {
+		database
+			// Enter the firebase database
+			.collection("people")
+			// Get the posts inside firebase
+			.onSnapshot((snapshot) =>
+				setPeople(snapshot.docs.map((doc) => doc.data()))
+			);
+	}, []);
+
+	//! Code to be rendered below
 
 	return (
 		<div>
