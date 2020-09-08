@@ -12,13 +12,18 @@ function TinderCards() {
 	// ! UseEffect below
 
 	useEffect(() => {
-		database
+		//
+		const unsubscribe = database
 			// Enter the firebase database
 			.collection("people")
-			// Get the posts inside firebase
+			// Get the posts inside the collection title people
 			.onSnapshot((snapshot) =>
 				setPeople(snapshot.docs.map((doc) => doc.data()))
 			);
+		return () => {
+			// this is the cleanup
+			unsubscribe();
+		};
 	}, []);
 
 	//! Code to be rendered below

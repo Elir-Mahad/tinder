@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./Header";
 import TinderCards from "./TinderCards";
+import SwipeButtons from "./SwipeButtons";
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 						<TinderCards />
 					</Route>
 				</Switch>
+				<SwipeButtons />
 			</Router>
 		</div>
 	);
